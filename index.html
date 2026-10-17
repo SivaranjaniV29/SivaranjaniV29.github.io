@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b1020;
+      color: #f5f5ff;
+      line-height: 1.7;
+    }
+    header {
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      background: #121a30;
+    }
+    header h2 { color: #a78bfa; }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 8px;
+    }
+    section { padding: 55px 8%; }
+    .hero { text-align: center; padding: 85px 8%; }
+    .hero h1 { font-size: 38px; }
+    .accent { color: #a78bfa; }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 15px;
+      background: #8b5cf6;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .card {
+      background: #151e35;
+      padding: 20px;
+      margin: 12px 0;
+      border-radius: 12px;
+      border: 1px solid #303b59;
+    }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skills span {
+      background: #252044;
+      padding: 8px 14px;
+      border-radius: 20px;
+    }
+    a { color: #c4b5fd; }
+    footer { text-align: center; padding: 25px; color: #aaa; }
+    h2 { color: #c4b5fd; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h2>My Portfolio</h2>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <p>Hello, welcome to my portfolio!</p>
+  <h1>Hi, I'm <span class="accent">Your Name</span></h1>
+  <h3>CSE - AI & ML Student | Aspiring Developer</h3>
+  <p>Learning, building and exploring technology every day.</p>
+  <a class="btn" href="#projects">Explore My Projects</a>
+</section>
+
+<section id="about">
+  <h2>About Me</h2>
+  <div class="card">
+    <p>I am a second-year Computer Science and Engineering
+    student specializing in Artificial Intelligence and Machine
+    Learning. I am interested in programming, problem-solving
+    and building useful technology projects.</p>
+    <p>My goal is to improve my technical skills and become
+    a skilled software engineer.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>My Skills</h2>
+  <div class="skills">
+    <span>C Programming</span>
+    <span>Python</span>
+    <span>Java</span>
+    <span>Data Structures</span>
+    <span>Artificial Intelligence</span>
+    <span>Machine Learning</span>
+    <span>GitHub</span>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>My Projects</h2>
+  <div class="card">
+    <h3>Habit Tracker App</h3>
+    <p>A mobile app concept to track daily habits and progress.</p>
+    <p>Technologies: MIT App Inventor, TinyDB</p>
+  </div>
+  <div class="card">
+    <h3>Weather Monitoring System</h3>
+    <p>An Arduino project that measures temperature and humidity.</p>
+    <p>Technologies: Arduino, DHT11, C++</p>
+  </div>
+  <div class="card">
+    <h3>Jungle Rush Game</h3>
+    <p>A 2D game project based on a jungle adventure.</p>
+    <p>Technologies: Game development tools</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <div class="card">
+    <p>I'd love to connect and learn with other developers!</p>
+    <p>GitHub: <a href="https://github.com/">Visit GitHub</a></p>
+    <p>Email: Add your email address here</p>
+  </div>
+</section>
+
+<footer>
+  <p>Made with passion for technology.</p>
+</footer>
+
+</body>
+</html>
