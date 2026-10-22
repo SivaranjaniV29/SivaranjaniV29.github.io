@@ -1,252 +1,58 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0b0b16">
-<meta name="description" content="Sivaranjani's CSE-AIML student portfolio, skills and projects.">
-<title>Sivaranjani | CSE-AIML Portfolio</title>
-<style>
-:root {
-  --bg: #0b0b16;
-  --panel: #151529;
-  --purple: #a78bfa;
-  --pink: #f0abfc;
-  --text: #f5f3ff;
-  --muted: #b8b5cc;
-  --border: #302b49;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: Arial, sans-serif;
-  line-height: 1.7;
-}
-a { color: var(--purple); }
-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(15, 15, 31, .96);
-  border-bottom: 1px solid var(--border);
-  padding: 14px 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-.logo { color: var(--purple); font-size: 21px; font-weight: bold; }
-nav { display: flex; flex-wrap: wrap; gap: 15px; }
-nav a { color: var(--text); text-decoration: none; font-size: 14px; }
-nav a:hover { color: var(--pink); }
-section { padding: 65px 8%; max-width: 1100px; margin: auto; }
-.hero {
-  min-height: 78vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  background: radial-gradient(ellipse at 80% 25%, #302052 0%, var(--bg) 58%);
-}
-.eyebrow { color: var(--pink); font-weight: bold; letter-spacing: 2px; }
-h1 { font-size: clamp(36px, 7vw, 62px); line-height: 1.15; margin: 12px 0; }
-h2 { font-size: 30px; color: var(--purple); margin-top: 0; }
-h3 { margin-top: 0; }
-.accent {
-  background: linear-gradient(90deg, var(--purple), var(--pink));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.lead { font-size: 18px; max-width: 650px; color: var(--muted); }
-.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
-.btn {
-  display: inline-block;
-  padding: 11px 18px;
-  border-radius: 9px;
-  background: var(--purple);
-  color: #171126;
-  font-weight: bold;
-  text-decoration: none;
-}
-.btn.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
-.btn:hover { transform: translateY(-2px); }
-.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.card {
-  background: var(--panel);
-  padding: 23px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  min-width: 0;
-}
-.card p { color: var(--muted); }
-.taglist { display: flex; flex-wrap: wrap; gap: 10px; }
-.tag {
-  background: #211b38;
-  border: 1px solid #453564;
-  color: #e9ddff;
-  padding: 7px 12px;
-  border-radius: 30px;
-  font-size: 14px;
-}
-.project-number { color: var(--pink); font-size: 13px; letter-spacing: 2px; }
-footer {
-  text-align: center;
-  border-top: 1px solid var(--border);
-  padding: 25px 15px;
-  color: var(--muted);
-}
-@media (max-width: 600px) {
-  header { justify-content: center; }
-  nav { justify-content: center; gap: 12px; }
-  section { padding: 48px 6%; }
-  .hero { min-height: 70vh; }
-  .grid { grid-template-columns: 1fr; }
-  h2 { font-size: 26px; }
-}
-</style>
-</head>
-<body>
-
-<header>
-  <div class="logo">Sivaranjani<span class="accent">.</span></div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<main>
-<section class="hero" id="home">
-  <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
-  <h1>Hi, I'm <span class="accent">Sivaranjani</span></h1>
-  <h3>CSE - Artificial Intelligence &amp; Machine Learning</h3>
-  <p class="lead">
-    Second-year B.E. student at Government College of Technology,
-    Coimbatore. I am learning programming, problem-solving and
-    AI/ML while building projects step by step.
-  </p>
-  <div class="actions">
-    <a class="btn" href="#projects">Explore My Projects ↘</a>
-    <a class="btn secondary" href="https://github.com/SivaranjaniV29"
-       target="_blank" rel="noopener noreferrer">My GitHub ↗</a>
-  </div>
-</section>
-
-<section id="about">
-  <h2>About Me</h2>
-  <div class="card">
-    <p>
-      I am Sivaranjani, a second-year B.E. CSE-AIML student at
-      Government College of Technology (GCT), Coimbatore.
-    </p>
-    <p>
-      I am developing my foundations in programming, Data Structures
-      and Algorithms, and Artificial Intelligence and Machine Learning.
-      I enjoy exploring new technologies and learning by creating
-      practical projects.
-    </p>
-    <p>
-      My goal is to grow into a skilled software engineer and keep
-      improving through consistent learning and hands-on practice.
-    </p>
-  </div>
-</section>
-
-<section id="skills">
-  <h2>Skills &amp; Learning</h2>
-  <p class="lead">Technologies and concepts I am learning and practising.</p>
-  <div class="taglist">
-    <span class="tag">C Programming</span>
-    <span class="tag">Python</span>
-    <span class="tag">Java</span>
-    <span class="tag">Data Structures</span>
-    <span class="tag">Algorithms</span>
-    <span class="tag">AI &amp; ML</span>
-    <span class="tag">HTML &amp; CSS</span>
-    <span class="tag">GitHub</span>
-    <span class="tag">Arduino</span>
-  </div>
-</section>
-
 <section id="projects">
-  <h2>Featured Projects</h2>
-  <p class="lead">A selection of my learning and college projects.</p>
-  <div class="grid">
-    <article class="card">
-      <span class="project-number">PROJECT 01</span>
-      <h3>Habit Tracker App</h3>
-      <p>
-        A mobile application project for tracking daily habits and
-        completion progress, with saved data.
-      </p>
-      <div class="taglist">
-        <span class="tag">MIT App Inventor</span>
-        <span class="tag">TinyDB</span>
-      </div>
-    </article>
+  <h2>My Projects</h2>
 
-    <article class="card">
-      <span class="project-number">PROJECT 02</span>
-      <h3>Weather Monitoring System</h3>
-      <p>
-        An Arduino-based project that reads temperature and humidity
-        from a DHT11 sensor and displays readings through the Serial Monitor.
-      </p>
-      <div class="taglist">
-        <span class="tag">Arduino</span>
-        <span class="tag">DHT11</span>
-        <span class="tag">C++</span>
-      </div>
-    </article>
+  <div class="project-container">
 
-    <article class="card">
-      <span class="project-number">PROJECT 03</span>
+    <!-- Project 1: Weather Station -->
+    <div class="project-card">
+      <h3>Arduino Weather Monitoring System</h3>
+      <p>
+        An Arduino-based project that measures
+        temperature and humidity using a DHT11 sensor
+        and Arduino UNO.
+      </p>
+      <p><strong>Technologies:</strong> Arduino UNO, DHT11, C/C++</p>
+      <a href="YOUR_WEATHER_GITHUB_LINK"
+         target="_blank" rel="noopener noreferrer">
+        View Project
+      </a>
+    </div>
+
+    <!-- Project 2: Jungle Rush -->
+    <div class="project-card">
       <h3>Jungle Rush: The Lost Temple</h3>
       <p>
-        A 2D jungle adventure game project with separate gameplay,
-        menu, victory and game-over scenes.
+        A 2D adventure game where players explore
+        a jungle, overcome challenges, and reach
+        the lost temple.
       </p>
-      <div class="taglist">
-        <span class="tag">2D Game</span>
-        <span class="tag">Game Design</span>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Let's Connect</h2>
-  <div class="card">
-    <p>
-      I am interested in learning, collaborating on projects and
-      connecting with fellow students and developers.
-    </p>
-    <p>
-      GitHub:
-      <a href="https://github.com/SivaranjaniV29"
+      <p><strong>Type:</strong> 2D Game</p>
+      <a href="YOUR_GAME_GITHUB_LINK"
          target="_blank" rel="noopener noreferrer">
-        github.com/SivaranjaniV29 ↗
+        View Project
       </a>
-    </p>
-    <p>Email: Add your preferred public contact email here.</p>
+      <br><br>
+      <a href="YOUR_APK_DOWNLOAD_LINK"
+         target="_blank" rel="noopener noreferrer">
+        Download APK
+      </a>
+    </div>
+
+    <!-- Project 3: Habit Tracker -->
+    <div class="project-card">
+      <h3>Daily Habit Buddy — Habit Tracker</h3>
+      <p>
+        A habit-tracking application designed to help
+        users track their daily habits and monitor
+        their progress.
+      </p>
+      <p><strong>Type:</strong> Habit Tracking App</p>
+      <a href="https://habit-maker-simple.lovable.app"
+         target="_blank" rel="noopener noreferrer">
+        Live Demo
+      </a>
+    </div>
+
   </div>
 </section>
-</main>
-
-<footer>
-  <p>Designed and built by Sivaranjani · 2026</p>
-  <p>Learning today. Building for tomorrow.</p>
-  <a href="#home">Back to top ↑</a>
-</footer>
-
-</body>
-</html>
