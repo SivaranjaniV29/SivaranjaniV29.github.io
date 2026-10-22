@@ -1,58 +1,641 @@
 
-<section id="projects">
-  <h2>My Projects</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sivaranjani's student portfolio featuring programming, AI and ML, and software projects.">
+  <title>Sivaranjani | AI & ML Student Portfolio</title>
 
-  <div class="project-container">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --surface: #131b30;
+      --surface-light: #19243d;
+      --text: #f2f5ff;
+      --muted: #b4bfd5;
+      --accent: #7c9cff;
+      --accent2: #62e6c5;
+      --border: rgba(255,255,255,0.12);
+    }
 
-    <!-- Project 1: Weather Station -->
-    <div class="project-card">
-      <h3>Arduino Weather Monitoring System</h3>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent2);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(11,16,32,0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--accent2);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      list-style: none;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent2);
+    }
+
+    section {
+      padding: 76px 0;
+      scroll-margin-top: 65px;
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(ellipse at 85% 20%, #283d7150, transparent 45%),
+        radial-gradient(ellipse at 15% 85%, #176b6650, transparent 40%);
+    }
+
+    .hero-content {
+      max-width: 780px;
+    }
+
+    .eyebrow {
+      color: var(--accent2);
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 4.8rem);
+      line-height: 1.13;
+      margin: 15px 0;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .hero p,
+    .section-intro {
+      color: var(--muted);
+      max-width: 680px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 20px;
+      border-radius: 9px;
+      font-weight: bold;
+      border: 1px solid var(--accent);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #081126;
+    }
+
+    .btn-secondary {
+      color: var(--text);
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 8px;
+    }
+
+    .section-title span {
+      color: var(--accent2);
+    }
+
+    .section-intro {
+      margin-bottom: 30px;
+    }
+
+    .about-grid,
+    .project-grid,
+    .skills-grid,
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .project-number {
+      color: var(--accent2);
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .project-card .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 10px;
+    }
+
+    .project-links a {
+      display: inline-block;
+      color: var(--accent2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    .project-links a:hover {
+      background: var(--surface-light);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .tag {
+      background: var(--surface-light);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      border-radius: 30px;
+      padding: 6px 12px;
+      font-size: 0.88rem;
+    }
+
+    .timeline-item {
+      border-left: 3px solid var(--accent2);
+      padding-left: 18px;
+      margin-top: 20px;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+    }
+
+    .contact-card {
+      text-align: center;
+      background: linear-gradient(135deg, #19243d, #102b36);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 720px) {
+      nav {
+        padding: 15px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .about-grid,
+      .project-grid,
+      .skills-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .hero {
+        min-height: 65vh;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="container" aria-label="Main navigation">
+      <a class="logo" href="#home">Sivaranjani.</a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#more">More</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <p class="eyebrow">Hello, I'm</p>
+
+        <h1>Sivaranjani <span>V</span></h1>
+
+        <h2>B.E. CSE — Artificial Intelligence & Machine Learning</h2>
+
+        <p>
+          Second-year engineering student at Government College
+          of Technology, Coimbatore. I am building my programming
+          skills through practical projects and exploring software
+          development, AI, ML, and application development.
+        </p>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="#projects">
+            Explore My Projects
+          </a>
+
+          <a class="btn btn-secondary"
+             href="https://github.com/SivaranjaniV29"
+             target="_blank" rel="noopener noreferrer">
+            Visit GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About <span>Me</span></h2>
+        <p class="section-intro">
+          Learning by building, improving one project at a time.
+        </p>
+
+        <div class="about-grid">
+          <article class="card">
+            <h3>Who I Am</h3>
+            <p>
+              I am a second-year B.E. Computer Science and Engineering
+              student specializing in AI and ML at Government College
+              of Technology (GCT), Coimbatore.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>My Career Objective</h3>
+            <p>
+              To strengthen my programming and problem-solving skills,
+              develop useful applications, gain practical experience,
+              and keep learning new technologies.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Technical <span>Skills</span></h2>
+        <p class="section-intro">
+          Technologies and concepts I am learning and practising.
+        </p>
+
+        <div class="skills-grid">
+          <article class="card">
+            <h3>Programming</h3>
+            <p>C Programming, Python Programming, Java Programming</p>
+          </article>
+
+          <article class="card">
+            <h3>Computer Science</h3>
+            <p>Data Structures, Algorithms, Problem-solving</p>
+          </article>
+
+          <article class="card">
+            <h3>AI & Machine Learning</h3>
+            <p>Exploring AI, ML concepts and Python libraries.</p>
+          </article>
+
+          <article class="card">
+            <h3>Project Development</h3>
+            <p>GitHub, HTML, CSS, Arduino projects and app development.</p>
+          </article>
+        </div>
+
+        <div class="tags">
+          <span class="tag">C</span>
+          <span class="tag">Python</span>
+          <span class="tag">Java — Learning</span>
+          <span class="tag">Data Structures</span>
+          <span class="tag">GitHub</span>
+          <span class="tag">Arduino</span>
+          <span class="tag">HTML & CSS</span>
+          <span class="tag">AI & ML — Learning</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">My <span>Projects</span></h2>
+        <p class="section-intro">
+          A collection of academic and personal projects.
+          Explore the repositories and live application below.
+        </p>
+
+        <div class="project-grid">
+
+          <!-- WEATHER STATION -->
+          <article class="card project-card">
+            <p class="project-number">PROJECT 01</p>
+
+            <h3>Arduino Weather Monitoring System</h3>
+
+            <p>
+              An Arduino-based project designed to measure temperature
+              and humidity using a DHT11 sensor connected to an
+              Arduino UNO.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Arduino UNO</span>
+              <span class="tag">DHT11</span>
+              <span class="tag">Electronics</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/SivaranjaniV29/arduino-weather-monitor"
+                 target="_blank" rel="noopener noreferrer">
+                View Repository ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- JUNGLE RUSH -->
+          <article class="card project-card">
+            <p class="project-number">PROJECT 02</p>
+
+            <h3>Jungle Rush: The Lost Temple</h3>
+
+            <p>
+              A 2D jungle adventure game project featuring a main menu,
+              jungle run, temple level, game-over screen, and victory
+              screen.
+            </p>
+
+            <div class="tags">
+              <span class="tag">2D Game</span>
+              <span class="tag">Game Development</span>
+              <span class="tag">Student Project</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/SivaranjaniV29/Jungle-Rush-Game"
+                 target="_blank" rel="noopener noreferrer">
+                View Repository ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- HABIT TRACKER -->
+          <article class="card project-card">
+            <p class="project-number">PROJECT 03</p>
+
+            <h3>Daily Habit Buddy — Habit Tracker</h3>
+
+            <p>
+              A habit-tracking application created to help users
+              record daily habits and keep track of their progress.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Application Development</span>
+              <span class="tag">Habit Tracking</span>
+              <span class="tag">Lovable</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://habit-maker-simple.lovable.app"
+                 target="_blank" rel="noopener noreferrer">
+                Live Demo ↗
+              </a>
+
+              <a href="https://github.com/SivaranjaniV29/HabitTracker-"
+                 target="_blank" rel="noopener noreferrer">
+                View Source ↗
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="container">
+        <h2 class="section-title">My <span>Education</span></h2>
+
+        <div class="card">
+          <div class="timeline-item">
+            <h3>B.E. Computer Science and Engineering (AI & ML)</h3>
+            <p>Government College of Technology (GCT), Coimbatore</p>
+            <p>Currently pursuing second year.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COURSES AND MORE -->
+    <section id="more">
+      <div class="container">
+        <h2 class="section-title">More <span>About Me</span></h2>
+
+        <div class="info-grid">
+          <article class="card">
+            <h3>Courses & Certifications</h3>
+            <p>
+              Java Programming — NPTEL (currently learning).
+            </p>
+            <p style="margin-top:10px">
+              Additional certificates can be added when completed.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Areas of Interest</h3>
+            <p>
+              Artificial Intelligence, Machine Learning,
+              Software Development, Application Development,
+              Programming and Game Development.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Soft Skills</h3>
+            <p>
+              Problem-solving, teamwork, communication,
+              time management and creativity.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Sports & Extracurricular</h3>
+            <p>
+              Add your sports activities, clubs and extracurricular
+              participation here.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Languages</h3>
+            <p>
+              Tamil and English.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Current Learning Goals</h3>
+            <p>
+              Improving programming fundamentals, building projects,
+              practising problem-solving, and exploring AI and ML.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="card contact-card">
+          <h2 class="section-title">Let's <span>Connect</span></h2>
+
+          <p class="section-intro" style="margin: 0 auto 20px">
+            Explore my work and follow my learning journey.
+          </p>
+
+          <div class="buttons" style="justify-content:center">
+            <a class="btn btn-primary"
+               href="https://github.com/SivaranjaniV29"
+               target="_blank" rel="noopener noreferrer">
+              GitHub Profile ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
       <p>
-        An Arduino-based project that measures
-        temperature and humidity using a DHT11 sensor
-        and Arduino UNO.
+        © <span id="year"></span> Sivaranjani V.
+        Built with HTML and CSS.
       </p>
-      <p><strong>Technologies:</strong> Arduino UNO, DHT11, C/C++</p>
-      <a href="YOUR_WEATHER_GITHUB_LINK"
-         target="_blank" rel="noopener noreferrer">
-        View Project
-      </a>
     </div>
+  </footer>
 
-    <!-- Project 2: Jungle Rush -->
-    <div class="project-card">
-      <h3>Jungle Rush: The Lost Temple</h3>
-      <p>
-        A 2D adventure game where players explore
-        a jungle, overcome challenges, and reach
-        the lost temple.
-      </p>
-      <p><strong>Type:</strong> 2D Game</p>
-      <a href="YOUR_GAME_GITHUB_LINK"
-         target="_blank" rel="noopener noreferrer">
-        View Project
-      </a>
-      <br><br>
-      <a href="YOUR_APK_DOWNLOAD_LINK"
-         target="_blank" rel="noopener noreferrer">
-        Download APK
-      </a>
-    </div>
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
 
-    <!-- Project 3: Habit Tracker -->
-    <div class="project-card">
-      <h3>Daily Habit Buddy — Habit Tracker</h3>
-      <p>
-        A habit-tracking application designed to help
-        users track their daily habits and monitor
-        their progress.
-      </p>
-      <p><strong>Type:</strong> Habit Tracking App</p>
-      <a href="https://habit-maker-simple.lovable.app"
-         target="_blank" rel="noopener noreferrer">
-        Live Demo
-      </a>
-    </div>
-
-  </div>
-</section>
+</body>
+</html>
